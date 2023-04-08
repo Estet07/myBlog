@@ -1,0 +1,35 @@
+.wrapper {
+    width: 56%;
+    margin: auto;
+}
+
+.title {
+    font-size: 36px;
+    text-align: center;
+    line-height: 42px;
+    margin-top: 72px;
+    margin-bottom: 74px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+input {
+    font-size: 24px;
+    margin-bottom: 93px;
+}
+
+.email {
+    text-align: center;
+    width: 521px;
+    height: 61px;
+    background-color: #C4C4C4;
+    margin-left: 145px;
+
+}
+
+.submit {
+    width: 275px;
+    height: 61px;
+    background-color: #000000;
+    color: #ffffff;
+}

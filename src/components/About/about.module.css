@@ -1,0 +1,33 @@
+.wrapper {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+} 
+
+.wrapperTitle {
+    width: 100%;
+    margin-top: 94px;
+}
+
+.title {
+    font-size: 64px;
+    line-height: 74px;
+    padding: 90px 120px;
+}
+
+.wrapperLink {
+    width: 470px;
+    height: 76px;
+    text-align: center;
+    margin-top: 54px;
+    margin-bottom: 177px;
+    margin-left: 65%;
+    
+}
+
+.link {
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 56px;
+    color: black;
+}

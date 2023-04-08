@@ -1,0 +1,17 @@
+header {
+    background-color: #BF94E8;
+}
+
+.nav {
+    width: 90%;
+    margin: auto;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.link {
+    font-size: 24px;
+    color: black;
+    text-decoration: none;
+}

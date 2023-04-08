@@ -1,0 +1,22 @@
+footer {
+    background-color: #BF94E8;
+}
+
+.wrapper {
+    width: 90%;
+    margin: auto;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 64px;
+    padding-top: 90px;
+}
+
+nav {
+    padding-top: 95px;
+    padding-bottom: 85px;
+}
+.link {
+    margin-right: 45px;
+}
