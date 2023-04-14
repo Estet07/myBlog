@@ -1,14 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from './post.module.css'
 
-const Post = (props) => {
+const Post = ({img, title, descr, date, id}) => {
   return (
     <article className={styles.post}>
-      <img src={props.img} alt="" className={styles.img} />
+      <img src={img} alt="" className={styles.img} />
       <div className={styles.info}>
-        <p className={styles.date}>{props.date}</p>
-        <h5 className={styles.title}>{props.title}</h5>
-        <p className={styles.descr}>{props.descr}</p>
+        <p className={styles.date}>{date}</p>
+        <h5 className={styles.title}>
+          <Link to={`/post/${id} `}className={styles.link}>{title}</Link>
+          </h5>
+        <p className={styles.descr}>{descr}</p>
       </div>
     </article>
   );

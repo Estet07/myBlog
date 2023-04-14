@@ -27,6 +27,11 @@
     font-size: 36px;
 }
 
+.link {
+    text-decoration: none;
+    color: black;
+}
+
 .descr {
     font-size: 24px;
 }

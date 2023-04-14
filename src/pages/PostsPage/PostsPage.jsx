@@ -5,7 +5,6 @@ import postServices from "../../services/posts";
 
 const PostsPage = (props) => {
   const [posts, setPosts] = useState([]);
-  console.log(postServices);
   useEffect(() => {
     postServices.get().then((res) => setPosts(res.data));
   }, []);
@@ -16,7 +15,7 @@ const PostsPage = (props) => {
       {posts.map((post) => {
         const dateString = post.createdAt;
         const date = new Date(dateString);
-        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const options = { day: 'numeric', month: 'short', year: 'numeric' };
         const formattedDate = date.toLocaleDateString('en-US', options);
         return (
           <Post
@@ -25,6 +24,7 @@ const PostsPage = (props) => {
             date={formattedDate}
             title={post.title}
             descr={post.descr}
+            id={post._id}
           />
         );
       })}
