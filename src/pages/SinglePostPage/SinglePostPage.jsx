@@ -4,10 +4,12 @@ import { useParams } from "react-router-dom";
 import postServices from '../../services/posts'
 
 const SinglePostPage = (props) => {
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState({});
   const { id } = useParams();
   useEffect(() => {
-    postServices.getPost(id).then((res) => setPost(res.data));
+    postServices
+    .getPost(id)
+    .then(res => setPost(res.data));
   }, []);
   
     const dateString = post.createdAt;
