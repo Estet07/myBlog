@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import styles from './registrpage.module.css'
 import Button from '@mui/material/Button';
+import { authServices } from '../../services/auth';
 
 
 const RegistrPage = () => {
@@ -9,14 +10,22 @@ const RegistrPage = () => {
     const [password, setPassword] = useState('')
     const [name, setName] = useState('')
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const { registration } = authServices();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         const newUser = {
+            username: name,
             email,
-            password,
-            name
+            password, 
+        };
+        try {
+            const { data } = await registration(newUser)
+            console.log(data._doc);
+        }catch (err) {
+            console.log(err.response.data);
         }
-        console.log(newUser)
+        
     }
  
     return (

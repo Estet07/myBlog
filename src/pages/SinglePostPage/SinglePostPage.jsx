@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from "react";
-import styles from './singlepostpage.module.css'
+import styles from "./singlepostpage.module.css";
 import { useParams } from "react-router-dom";
-import postServices from '../../services/posts'
+import postServices from "../../services/posts";
+import Loader from "../../components/Loader";
 
 const SinglePostPage = (props) => {
   const [post, setPost] = useState({});
+  const [isPostLoading, setIsPostLoading] = useState(false);
   const { id } = useParams();
   useEffect(() => {
-    postServices
-    .getPost(id)
-    .then(res => setPost(res.data));
+    document.documentElement.scroll({
+      top: "0",
+      behavior: "smooth"
+    });
+    setIsPostLoading(true);
+    postServices.getPost(id).then((res) => {
+      setPost(res.data);
+      setIsPostLoading(false);
+    });
   }, []);
-  
-    const dateString = post.createdAt;
-    const date = new Date(dateString);
-    const options = { day: 'numeric', month: 'short', year: 'numeric' };
-    const formattedDate = date.toLocaleDateString('en-US', options);
+
+  const date = new Date(post.createdAt);
+  const options = { day: "numeric", month: "short", year: "numeric" };
+  const formattedDate = date.toLocaleDateString("en-US", options);
+
+  if (isPostLoading) {
+    return <Loader />;
+  }
   return (
     <article className={styles.post}>
       <h1 className={styles.title}>{post.title}</h1>

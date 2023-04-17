@@ -2,12 +2,22 @@ import React, { useState, useEffect } from "react";
 import Post from "../../components/Post/Post";
 import styles from "./postspage.module.css";
 import postServices from "../../services/posts";
+import Loader from "../../components/Loader";
 
 const PostsPage = (props) => {
   const [posts, setPosts] = useState([]);
+  const [isPostsLoading, setIsPostsLoading] = useState(false)
   useEffect(() => {
-    postServices.get().then((res) => setPosts(res.data));
+    setIsPostsLoading(true)
+    postServices.get().then((res) => {
+      setPosts(res.data)
+      setIsPostsLoading(false)
+    } );
   }, []);
+
+  if (isPostsLoading) {
+    return <Loader />;
+  }
 
   //вызываем функцию запроса с сервера
   return (
