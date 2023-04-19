@@ -33,6 +33,7 @@ const SinglePostPage = (props) => {
       <img src={post.img} alt="" className={styles.img} />
       <p className={styles.descr}>{post.descr}</p>
       <p className={styles.date}>{formattedDate}</p>
+      <p>Категории: {post.categories}</p>
     </article>
   );
 };

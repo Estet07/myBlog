@@ -35,6 +35,7 @@ const PostsPage = (props) => {
             title={post.title}
             descr={post.descr}
             id={post._id}
+            categories={post.categories}
           />
         );
       })}
