@@ -90,7 +90,9 @@ const RegistrPage = () => {
           Зарегестрироваться
         </Button>
       </form>
-      <ToastContainer />
+      <ToastContainer 
+        autoClose={2000}
+      />
     </section>
   );
 };
