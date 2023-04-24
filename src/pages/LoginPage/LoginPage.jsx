@@ -1,4 +1,4 @@
-import React from "react"; 
+import React, { useState } from "react"; 
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import styles from "../RegistrPage/registrpage.module.css";
@@ -9,6 +9,7 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 
 const LoginPage = () => {
+  const [username, setUsername] = useState('')
   const validationSchema = yup.object().shape({
     email: yup
       .string()
@@ -27,18 +28,18 @@ const LoginPage = () => {
       try {
         const { data } = await login(values);
         console.log(data);
+        setUsername(data.username)
         toast("Вы успешно авторизировались");
       } catch (err) {
-        toast("Вы не авторизировались");
+        toast(err.response.data);
       }
     },
   });
 
   const { login } = authServicesLogin();
-
   return (
     <section className={styles.wrapper}>
-      <h1 className={styles.title}>Логин</h1>
+      <h1 className={styles.title}>Логин {username}</h1>
       <form className={styles.form} onSubmit={formik.handleSubmit}>
         <TextField
             error={formik.errors.email}
