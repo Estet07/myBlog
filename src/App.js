@@ -8,6 +8,7 @@ import SinglePostPage from './pages/SinglePostPage/SinglePostPage';
 import RegistrPage from './pages/RegistrPage/RegistrPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import About from './components/About/About';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/registr' element={<RegistrPage />} />
         <Route path='/login' element={<LoginPage />}/>
         <Route path='/about' element={<About />}/>
+        <Route path='/profile' element={<ProfilePage />}/>
       </Routes>
       <Footer />
     </>

@@ -7,9 +7,15 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as yup from "yup";
 import { useFormik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+import { loginSuccess } from "../../redux/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [username, setUsername] = useState('')
+  const dispatch = useDispatch() // позволяет вызвать action
+  const user = useSelector(state => state.user.currentUser)
+  const navigate = useNavigate()
   const validationSchema = yup.object().shape({
     email: yup
       .string()
@@ -27,9 +33,10 @@ const LoginPage = () => {
     onSubmit: async (values) => {
       try {
         const { data } = await login(values);
-        console.log(data);
+        dispatch(loginSuccess(data))
         setUsername(data.username)
         toast("Вы успешно авторизировались");
+        navigate("/profile")
       } catch (err) {
         toast(err.response.data);
       }

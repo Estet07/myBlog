@@ -1,5 +1,7 @@
 header {
     background-color: #BF94E8;
+    display: flex;
+    align-items: center;
 }
 
 .nav {
@@ -18,4 +20,18 @@ header {
 
 .active {
     border-bottom: 1px solid black;
+}
+.username {
+    font-size: 24px;
+    
+
+}
+
+.button {
+    margin: auto 20px;
+    width: 100px;
+    font-size: 24px;
+    border-radius: 15px;
+    background-color: #9052ca;
+
 }
